@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Himanshu | Balloon Shooter Resume</title>
+  <meta name="description" content="A catchy balloon shooting game resume for Himanshu – Web Developer & Full‑Stack Developer." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Himanshu</h1>
+      <div class="role">Web Developer · Full‑Stack Developer</div>
+    </div>
+  </header>
+
+  <div class="topbar">
+    <button class="btn" id="soundBtn" title="Sound on/off">🔊</button>
+    <button class="btn" id="resetBtn" title="Reset progress">Reset</button>
+    <button class="btn primary" id="printBtn" title="Print / Save as PDF">Export PDF</button>
+  </div>
+
+  <div id="wrap">
+    <div id="stage">
+      <canvas id="game" width="960" height="540" aria-label="Balloon shooter resume game"></canvas>
+
+      <div class="splash" id="splash">
+        <div class="logo">🎯 Pop‑Your‑Resume</div>
+        <div class="subtitle">Move: <kbd>A</kbd>/<kbd>D</kbd> · Aim: Mouse · Shoot: <kbd>Space</kbd>/<kbd>Click</kbd> · Pop balloons to reveal resume sections</div>
+        <div style="display:flex;gap:10px">
+          <button class="btn primary" id="startBtn">Start</button>
+          <button class="btn" id="muteOnStart">Start Muted</button>
+        </div>
+      </div>
+
+      <div class="hud">
+        <span class="chip">Score: <b id="score">0</b></span>
+        <span class="chip">Popped: <b id="popped">0</b>/5</span>
+        <span class="chip badge">Pop balloons to unlock sections</span>
+      </div>
+      <div class="help">Move: <kbd>A</kbd><kbd>D</kbd> · Shoot: <kbd>Space</kbd>/<kbd>Click</kbd></div>
+
+      <div class="controls" id="touchCtl">
+        <button class="btn" id="leftBtn">◀</button>
+        <button class="btn primary" id="fireBtn">●</button>
+        <button class="btn" id="rightBtn">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <dialog id="panel">
+    <div class="modal-head">
+      <strong id="panelTitle">Section</strong>
+      <button class="btn" id="closeBtn" aria-label="Close">Close</button>
+    </div>
+    <div class="modal-body">
+      <aside>
+        <div class="npc-card">
+          <h3>Progress</h3>
+          <p>Pop all 5 balloons to complete your resume tour.</p>
+        </div>
+        <div class="section">
+          <h2>Unlocked</h2>
+          <div id="badgelist" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+        </div>
+      </aside>
+      <main id="content"></main>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" id="copyLink">Copy Share Link</button>
+      <button class="btn primary" id="gotIt">Got it</button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
